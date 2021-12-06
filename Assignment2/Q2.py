@@ -324,7 +324,7 @@ class MyNeuralNetwork():
 			if val_set is not None :
 				self.validation_loss[e] = val_cost
 
-			filename = 'weights/' +'Q2/'+ self.activation + "_" + str(self.learning_rate) + "_" + str(self.num_epochs)
+			filename = 'Weights/' +'Q2/'+ self.activation + "_" + str(self.learning_rate) + "_" + str(self.num_epochs)
 			pickle.dump(self, open(filename, 'wb'))
 
 	def forward_propagation(self, x) :
