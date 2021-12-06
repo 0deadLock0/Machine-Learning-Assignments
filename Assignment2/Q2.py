@@ -315,13 +315,13 @@ class MyNeuralNetwork():
 				delta_bias = (1/x_batch.shape[0]) * self.learning_rate * numpy.sum(local_graidents[l])
 				self.biases[l] -= delta_bias
 
-			if val_set is None :
-				y_val_pred_prob=self.predict_prob(val_set[0])
+			if val_set is not None :
+				y_val_pred_prob=self.predict_proba(val_set[0])
 				val_cost=self.cross_entropy_loss(y_val_pred_prob, val_set[1])
 			train_cost = self.cross_entropy_loss(activation_outputs[self.n_layers - 2], train_set[1])
 
 			self.training_loss[e] = train_cost
-			if val_set is None :
+			if val_set is not None :
 				self.validation_loss[e] = val_cost
 
 			filename = 'weights/' +'Q2/'+ self.activation + "_" + str(self.learning_rate) + "_" + str(self.num_epochs)
